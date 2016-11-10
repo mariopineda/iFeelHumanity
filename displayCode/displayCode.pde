@@ -3,7 +3,7 @@ PFont f;
 void setup() {
   fullScreen();
   background(255, 255, 255); // Background color as rgb values
-  f = createFont("Georgia",16,true);
+  f = createFont("Georgia",36,true);
 }
 
 void draw() {
