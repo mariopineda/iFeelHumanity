@@ -7,13 +7,12 @@ void setup() {
 }
 
 void draw() {
-background(255);
-  
-  String tweets[] = loadStrings("tweets.txt");
-println("Loading file with " + tweets.length + " tweets");
-for (int i=0; i < tweets.length; i++) {
-  println(tweets[i]);
-}
+  background(255);
+  String tweets[] = loadStrings("../tweets.txt");
+  println("Loading file with " + tweets.length + " tweets");
+  for (int i=0; i < tweets.length; i++) {
+    println(tweets[i]);
+  }
 
   textFont(f,36);
   fill(0,0,0);
