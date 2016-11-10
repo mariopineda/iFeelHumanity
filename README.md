@@ -1,2 +1,2 @@
 # iFeelHumanity
-A visual art project expressing how humanity is feeling this hour
+A visual arts project expressing how humanity is feeling this hour
