@@ -33,9 +33,15 @@ api = twitter.Api(consumer_key=consumer_key,
                   access_token_key=access_token_key,
                   access_token_secret=access_token_secret)
 #print(api.VerifyCredentials())
-results = api.GetSearch(raw_query="q=%22I%20feel%22%20lang%3Aen&count=10")
 
+# Documentation for twitter search api: https://dev.twitter.com/rest/reference/get/search/tweets
+results = api.GetSearch(raw_query="q=%22I%20feel%22%20lang%3Aen&count=40&result_type=mixed")
+
+# Define custom black listed words (that should be removed from tweets)
 black_list = ['rt']
+
+# Load List of Dirty Naughty Obscene and Otherwise Bad Words (that will be used to bleep-out words)
+ldnoobw = [line.rstrip('\n') for line in open('ldnoobw.txt')]
 
 tweet_list = []
 word_list = []
@@ -59,9 +65,13 @@ for result in results:
         tmp = ' '.join([i for i in words if i not in black_list])
         tweet = tmp
 
+        # Replace LDNOOBW with <bleep>
+        for bad in ldnoobw:
+          tweet = tweet.replace(bad,'<bleep>')
+
         # Remove hashtags
-        tmp = ' '.join(word for word in tweet.split(' ') if not word.startswith('#'))
-        tweet = tmp
+#        tmp = ' '.join(word for word in tweet.split(' ') if not word.startswith('#'))
+#        tweet = tmp
 
         # Remove words that start with @
         tmp = ' '.join(word for word in tweet.split(' ') if not word.startswith('@'))
