@@ -39,7 +39,7 @@ api = twitter.Api(consumer_key=consumer_key,
 results = api.GetSearch(raw_query="q=%22I%20feel%22%20lang%3Aen&count=100&result_type=recent")
 
 # Define custom black listed words (that should be removed from tweets)
-black_list = ['rt', '&amp', 'weed', 'homo', 'gay']
+black_list = ['rt', '&amp', 'weed', 'homo', 'gay', 'ho', 'hoes']
 
 # Load List of Dirty Naughty Obscene and Otherwise Bad Words (that will be used to bleep-out words)
 #ldnoobw = [line.rstrip('\n') for line in open('ldnoobw.txt')]
@@ -70,7 +70,7 @@ for result in results:
 
         # Replace LDNOOBW with <bleep>
         for bad in ldnoobw:
-          tweet = tweet.replace(" "+bad+" ",'<bleep>')
+          tweet = tweet.replace(" "+bad,'<bleep>')
 
         # Remove hashtags
 #        tmp = ' '.join(word for word in tweet.split(' ') if not word.startswith('#'))
