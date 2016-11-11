@@ -50,7 +50,6 @@ ldnoobw = filter(None, ldnoobw)
 tweet_list = []
 word_list = []
 
-file = open('tweets.txt', 'w')
 for result in results:
 
     # Convert current tweet to ascii
@@ -81,12 +80,17 @@ for result in results:
         tmp = ' '.join(word for word in tweet.split(' ') if not word.startswith('@'))
         tweet = tmp
 
-        file.write('%s\n' % tweet)
-
         # Split sentence into individual words
         words = tweet.split()
         word_list.append(words)
 
         tweet_list.append(tweet)
 
+        # Remove duplicate tweets
+        tweet_list = list(set(tweet_list))
+
+# Save cleaned up list of tweets to file
+file = open('tweets.txt', 'w')
+for tweet in tweet_list:
+  file.write('%s\n' % tweet)
 file.close()
