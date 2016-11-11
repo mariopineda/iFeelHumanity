@@ -1,6 +1,7 @@
 # sudo pip install -U nltk
 
 import twitter
+import urllib
 import random
 from collections import Counter
 from nltk.corpus import stopwords
@@ -41,7 +42,10 @@ results = api.GetSearch(raw_query="q=%22I%20feel%22%20lang%3Aen&count=40&result_
 black_list = ['rt']
 
 # Load List of Dirty Naughty Obscene and Otherwise Bad Words (that will be used to bleep-out words)
-ldnoobw = [line.rstrip('\n') for line in open('ldnoobw.txt')]
+#ldnoobw = [line.rstrip('\n') for line in open('ldnoobw.txt')]
+ldnoobw = urllib.urlopen("https://raw.githubusercontent.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words/master/en").read()
+ldnoobw = ldnoobw.split('\n')
+ldnoobw = filter(None, ldnoobw)
 
 tweet_list = []
 word_list = []
