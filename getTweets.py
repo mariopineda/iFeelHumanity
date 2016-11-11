@@ -19,9 +19,9 @@ consumer_secret = file.read()
 consumer_secret = consumer_secret.rstrip('\n')
 file.close()
 
-file = open('access_token_key.txt', 'r')
-access_token_key = file.read()
-access_token_key = access_token_key.rstrip('\n')
+file = open('access_token.txt', 'r')
+access_token = file.read()
+access_token = access_token.rstrip('\n')
 file.close()
 
 file = open('access_token_secret.txt', 'r')
@@ -31,7 +31,7 @@ file.close()
 
 api = twitter.Api(consumer_key=consumer_key,
                   consumer_secret=consumer_secret,
-                  access_token_key=access_token_key,
+                  access_token_key=access_token,
                   access_token_secret=access_token_secret)
 #print(api.VerifyCredentials())
 
