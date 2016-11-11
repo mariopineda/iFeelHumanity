@@ -70,7 +70,7 @@ for result in results:
 
         # Replace LDNOOBW with <bleep>
         for bad in ldnoobw:
-          tweet = tweet.replace(bad,'<bleep>')
+          tweet = tweet.replace(" "+bad+" ",'<bleep>')
 
         # Remove hashtags
 #        tmp = ' '.join(word for word in tweet.split(' ') if not word.startswith('#'))
