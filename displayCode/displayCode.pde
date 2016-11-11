@@ -31,8 +31,8 @@ void draw() {
 
   textFont(f,36);
   rectMode(CENTER);
-  textAlign(CENTER, CENTER);
-  text(tweets[i],width/2,height/2,width*0.75,height*0.25);
+  textAlign(LEFT);
+  text(tweets[i],width/2,height/2,width*0.5,height*0.25);
   
     if (millis() - time >= timeDelay) {
     time = millis();
