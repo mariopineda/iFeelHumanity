@@ -5,6 +5,8 @@ int fadeout = 255;
 int fadein = -100; 
 PFont f;
 String tweets[];
+final int white = 255;
+final int black = 0;
 
 void setup() {
   fullScreen();
@@ -17,13 +19,13 @@ boolean textfadesin = true;
 int i = 0;
 
 void draw() {
-  background(0);
+  background(white);
 
   if (textfadesin) {
-    fill(255, fadein); 
+    fill(black, fadein); 
     fadein++;
   } else {
-    fill(255, fadeout); 
+    fill(black, fadeout); 
     fadeout--;
   }
 
