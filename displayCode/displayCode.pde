@@ -6,7 +6,9 @@ int fadein = -100;
 PFont f;
 
 void setup() {
-  fullScreen();
+  //fullScreen();
+  size(800,600);
+  background(0);
   f = createFont("Georgia",36,true);
 }
 
@@ -42,7 +44,9 @@ void draw() {
       textfadesin = !textfadesin;
       fadein = 0;
       fadeout = 255;
-      i++;
+      if (textfadesin) {
+        i++;
+      }
     } // if
   } // while
 }
