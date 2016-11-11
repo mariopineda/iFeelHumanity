@@ -36,7 +36,7 @@ api = twitter.Api(consumer_key=consumer_key,
 #print(api.VerifyCredentials())
 
 # Documentation for twitter search api: https://dev.twitter.com/rest/reference/get/search/tweets
-results = api.GetSearch(raw_query="q=%22I%20feel%22%20lang%3Aen&count=40&result_type=mixed")
+results = api.GetSearch(raw_query="q=%22I%20feel%22%20lang%3Aen&count=100&result_type=recent")
 
 # Define custom black listed words (that should be removed from tweets)
 black_list = ['rt']
