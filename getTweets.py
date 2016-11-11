@@ -60,8 +60,8 @@ for result in results:
     if not 'http' in tweet and len(tweet) < 140:
 
         # Turn upper cases to lower cases
-        #tmp = tweet.lower()
-        #tweet = tmp
+        tmp = tweet.lower()
+        tweet = tmp
 
         # Remove blacklisted words
         words = tweet.split()
