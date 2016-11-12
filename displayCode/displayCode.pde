@@ -13,6 +13,7 @@ void setup() {
   background(152, 152, 152);
   f = createFont("Georgia",36,true);
   tweets = loadStrings("../tweets.txt");
+  noCursor();
 }
 
 boolean textfadesin = true;
