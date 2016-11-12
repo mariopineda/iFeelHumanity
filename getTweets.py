@@ -1,4 +1,5 @@
 # sudo pip install -U nltk
+# sudo pip install python-twitter
 
 import twitter
 import urllib
