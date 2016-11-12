@@ -1,11 +1,11 @@
-# sudo pip install -U nltk
+# Before running getTweets.py the following installations have top be done:
+#
 # sudo pip install python-twitter
 
 import twitter
 import urllib
 import random
 from collections import Counter
-from nltk.corpus import stopwords
 
 #
 # Load twitter authorization keys (these are secret are ignored by git)
