@@ -58,4 +58,4 @@ file.close()
 # Rename tweet file
 dt = str(datetime.datetime.now())
 newname = '/home/mpineda/iFeelHumanity/tweets_'+dt+'.txt'
-os.rename('/home/mpineda/iFeelHumanity/tweets.txt', newname)
+os.rename('/home/mpineda/iFeelHumanity/morgue/tweets.txt', newname)
