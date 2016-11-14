@@ -10,22 +10,22 @@ from collections import Counter
 #
 # Load twitter authorization keys (these are secret are ignored by git)
 #
-file = open('consumer_key.txt', 'r')
+file = open('/home/mpineda/iFeelHumanity/consumer_key.txt', 'r')
 consumer_key = file.read()
 consumer_key = consumer_key.rstrip('\n') # Remove trailing \n
 file.close()
 
-file = open('consumer_secret.txt', 'r')
+file = open('/home/mpineda/iFeelHumanity/consumer_secret.txt', 'r')
 consumer_secret = file.read()
 consumer_secret = consumer_secret.rstrip('\n')
 file.close()
 
-file = open('access_token.txt', 'r')
+file = open('/home/mpineda/iFeelHumanity/access_token.txt', 'r')
 access_token = file.read()
 access_token = access_token.rstrip('\n')
 file.close()
 
-file = open('access_token_secret.txt', 'r')
+file = open('/home/mpineda/iFeelHumanity/access_token_secret.txt', 'r')
 access_token_secret = file.read()
 access_token_secret = access_token_secret.rstrip('\n')
 file.close()
@@ -91,7 +91,7 @@ for result in results:
         tweet_list = list(set(tweet_list))
 
 # Save cleaned up list of tweets to file
-file = open('./tweets.txt', 'a') # Append new tweets to existing file
+file = open('/home/mpineda/iFeelHumanity/tweets.txt', 'a') # Append new tweets to existing file
 for tweet in tweet_list:
   file.write('%s\n' % tweet)
 file.close()
