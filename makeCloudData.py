@@ -71,7 +71,7 @@ os.rename('/home/mpineda/iFeelHumanity/tweets.txt', newname)
 # post a new status
 # twitter API docs: https://dev.twitter.com/docs/api/1/post/statuses/update
 #-----------------------------------------------------------------------
-words = [line.strip('\n') for line in open('topThreeWords.txt')]
+words = [line.strip('\n') for line in open('/home/mpineda/iFeelHumanity/topThreeWords.txt')]
 new_status = "I feel " + words[0] + ". I feel " + words[1] + ". I feel " + words[2] + ". #iFeelHumanity"
 results = twitter.statuses.update(status = new_status)
 print "updated status: %s" % new_status
