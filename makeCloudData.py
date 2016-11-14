@@ -52,7 +52,6 @@ for letter, count in wordCounts.most_common(3):
   file.write('%s\n' % (letter))
 file.close()
 
-
 # Save words to file & move old file to morgue
 newname = '/home/mpineda/iFeelHumanity/morgue/wordList_'+dt+'.txt'
 os.rename('/home/mpineda/iFeelHumanity/wordList.txt', newname)
@@ -66,3 +65,13 @@ file.close()
 dt = str(datetime.datetime.now())
 newname = '/home/mpineda/iFeelHumanity/morgue/tweets_'+dt+'.txt'
 os.rename('/home/mpineda/iFeelHumanity/tweets.txt', newname)
+
+# Tweet out
+#-----------------------------------------------------------------------
+# post a new status
+# twitter API docs: https://dev.twitter.com/docs/api/1/post/statuses/update
+#-----------------------------------------------------------------------
+words = [line.strip('\n') for line in open('topThreeWords.txt')]
+new_status = "I feel " + words[0] + ". I feel " + words[1] + ". I feel " + words[2] + ". #iFeelHumanity"
+results = twitter.statuses.update(status = new_status)
+print "updated status: %s" % new_status
