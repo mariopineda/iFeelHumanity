@@ -91,7 +91,7 @@ for result in results:
         tweet_list = list(set(tweet_list))
 
 # Save cleaned up list of tweets to file
-file = open('tweets.txt', 'w')
+file = open('tweets.txt', 'a') # Append new tweets to existing file
 for tweet in tweet_list:
   file.write('%s\n' % tweet)
 file.close()
