@@ -42,14 +42,21 @@ for letter, count in wordCounts.most_common(100):
   file.write('%s\t%d\n' % (letter, count))
 file.close()
 
-# Save top three words
+# Save top three words & move old file to morgue
+dt = str(datetime.datetime.now())
+newname = '/home/mpineda/iFeelHumanity/morgue/topThreeWords_'+dt+'.txt'
+os.rename('/home/mpineda/iFeelHumanity/topThreeWords.txt', newname)
+
 file = open('/home/mpineda/iFeelHumanity/topThreeWords.txt','w')
 for letter, count in wordCounts.most_common(3):
   file.write('%s\n' % (letter))
 file.close()
 
 
-# Save words to file
+# Save words to file & move old file to morgue
+newname = '/home/mpineda/iFeelHumanity/morgue/wordList_'+dt+'.txt'
+os.rename('/home/mpineda/iFeelHumanity/wordList.txt', newname)
+
 file = open('/home/mpineda/iFeelHumanity/wordList.txt','w')
 for word in words_list:
   file.write('%s\n' % word)
@@ -57,5 +64,5 @@ file.close()
 
 # Rename tweet file
 dt = str(datetime.datetime.now())
-newname = '/home/mpineda/iFeelHumanity/tweets_'+dt+'.txt'
-os.rename('/home/mpineda/iFeelHumanity/morgue/tweets.txt', newname)
+newname = '/home/mpineda/iFeelHumanity/morgue/tweets_'+dt+'.txt'
+os.rename('/home/mpineda/iFeelHumanity/tweets.txt', newname)
