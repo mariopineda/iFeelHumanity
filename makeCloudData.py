@@ -4,6 +4,7 @@ import datetime
 import os
 import sys
 import twitter
+import random
 
 # Check that file with tweet data exists
 try:
@@ -35,13 +36,20 @@ for tweet in tweets:
   print('OUT: %s' % tmp3)
   words_list.extend(tweet.split())
 
-# Count word occurences
+# Get word frequencies
 wordCounts = Counter(words_list)
 
+# Save word frequences of the top 100 most common words to file
 file = open('/home/mpineda/iFeelHumanity/wordCounts.txt','w')
 for letter, count in wordCounts.most_common(100):
   file.write('%s\t%d\n' % (letter, count))
 file.close()
+
+#
+wordPop = []
+for letter, count in wordCounts.most_common(10):
+  wordPop += [letter] * count
+sampleWords = random.sample(wordPop, 3)
 
 # Save top three words & move old file to morgue
 dt = str(datetime.datetime.now())
@@ -49,8 +57,8 @@ newname = '/home/mpineda/iFeelHumanity/morgue/topThreeWords_'+dt+'.txt'
 os.rename('/home/mpineda/iFeelHumanity/topThreeWords.txt', newname)
 
 file = open('/home/mpineda/iFeelHumanity/topThreeWords.txt','w')
-for letter, count in wordCounts.most_common(3):
-  file.write('%s\n' % (letter))
+for i in sampleWords:
+  file.write('%s\n' % i)
 file.close()
 
 # Save words to file & move old file to morgue
