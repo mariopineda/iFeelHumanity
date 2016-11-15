@@ -3,6 +3,7 @@ from collections import Counter
 import datetime
 import os
 import sys
+import twitter
 
 # Check that file with tweet data exists
 try:
@@ -71,7 +72,39 @@ os.rename('/home/mpineda/iFeelHumanity/tweets.txt', newname)
 # post a new status
 # twitter API docs: https://dev.twitter.com/docs/api/1/post/statuses/update
 #-----------------------------------------------------------------------
+#
+# Load twitter authorization keys (these are secret are ignored by git)
+#
+file = open('/home/mpineda/iFeelHumanity/consumer_key.txt', 'r')
+consumer_key = file.read()
+consumer_key = consumer_key.rstrip('\n') # Remove trailing \n
+file.close()
+
+file = open('/home/mpineda/iFeelHumanity/consumer_secret.txt', 'r')
+consumer_secret = file.read()
+consumer_secret = consumer_secret.rstrip('\n')
+file.close()
+
+file = open('/home/mpineda/iFeelHumanity/access_token.txt', 'r')
+access_token = file.read()
+access_token = access_token.rstrip('\n')
+file.close()
+
+file = open('/home/mpineda/iFeelHumanity/access_token_secret.txt', 'r')
+access_token_secret = file.read()
+access_token_secret = access_token_secret.rstrip('\n')
+file.close()
+
+api = twitter.Api(consumer_key=consumer_key,
+                  consumer_secret=consumer_secret,
+                  access_token_key=access_token,
+                  access_token_secret=access_token_secret)
+#print(api.VerifyCredentials())
+
+
 words = [line.strip('\n') for line in open('/home/mpineda/iFeelHumanity/topThreeWords.txt')]
 new_status = "I feel " + words[0] + ". I feel " + words[1] + ". I feel " + words[2] + ". #iFeelHumanity"
+status = api.PostUpdate(new_status)
+
 results = twitter.statuses.update(status = new_status)
 print "updated status: %s" % new_status
