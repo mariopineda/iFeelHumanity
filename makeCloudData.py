@@ -45,11 +45,27 @@ for letter, count in wordCounts.most_common(100):
   file.write('%s\t%d\n' % (letter, count))
 file.close()
 
-#
-wordPop = []
+#------------------------------------------------------------------------
+# Random sampling of three words by frequency. 
+# Note that since multiple occurences of words are represented as multiple 
+# identical items in the wordPop list we need to remove the first two 
+# sampled words from the list to avoid resampling of the same words 
+#------------------------------------------------------------------------
+wordPop = [] # A list of words, each one repeated as many time as it occurs
+sampleWords = [] # List of the three sampled words
 for letter, count in wordCounts.most_common(10):
   wordPop += [letter] * count
-sampleWords = random.sample(wordPop, 3)
+word = random.sample(wordPop, 1) # Sample 1st word
+sampleWords += word 
+while word in wordPop: wordPop.remove(word) # Remove 1st word from population to avoid resampling
+
+word = random.sample(wordPop, 1) # Sample 2nd word
+sampleWords += word 
+while word in wordPop: wordPop.remove(word) # Remove 2st word from population to $
+
+word = random.sample(wordPop, 1) # Sample 3rd word
+sampleWords += word 
+
 
 # Save top three words & move old file to morgue
 dt = str(datetime.datetime.now())
