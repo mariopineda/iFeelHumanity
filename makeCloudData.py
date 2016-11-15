@@ -105,6 +105,5 @@ api = twitter.Api(consumer_key=consumer_key,
 words = [line.strip('\n') for line in open('/home/mpineda/iFeelHumanity/topThreeWords.txt')]
 new_status = "I feel " + words[0] + ". I feel " + words[1] + ". I feel " + words[2] + ". #iFeelHumanity"
 status = api.PostUpdate(new_status)
-
-results = twitter.statuses.update(status = new_status)
+#results = twitter.statuses.update(status = new_status)
 print "updated status: %s" % new_status
