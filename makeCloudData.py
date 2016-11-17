@@ -17,6 +17,7 @@ except IOError:  # FileNotFoundError in Python 3
 tweets = [line.rstrip('\n') for line in open('/home/mpineda/iFeelHumanity/tweets.txt')]
 stopwords = [line.rstrip('\n') for line in open('/home/mpineda/iFeelHumanity/stopwords.txt')]
 stopwords = filter(None, stopwords)
+stopwords = ' '.join(stopwords).translate(None, string.punctuation).split() # Remove punctuations from stopwords
 
 # Remove stop words from tweets
 words_list = []
