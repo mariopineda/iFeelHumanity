@@ -64,23 +64,23 @@ word = random.sample(wordPop, 1) # Sample 3rd word
 sampleWords += word 
 
 # Save top three words & move old file to morgue
-dt = str(datetime.datetime.now())
-newname = '/home/mpineda/iFeelHumanity/morgue/topThreeWords_'+dt+'.txt'
-os.rename('/home/mpineda/iFeelHumanity/topThreeWords.txt', newname)
+#dt = str(datetime.datetime.now())
+#newname = '/home/mpineda/iFeelHumanity/morgue/topThreeWords_'+dt+'.txt'
+#os.rename('/home/mpineda/iFeelHumanity/topThreeWords.txt', newname)
 
-#file = open('/home/mpineda/iFeelHumanity/topThreeWords.txt','w')
-#for i in sampleWords:
-#  file.write('%s\n' % i)
-#file.close()
+file = open('/home/mpineda/iFeelHumanity/topThreeWords.txt','w')
+for i in sampleWords:
+  file.write('%s\n' % i)
+file.close()
 
 # Save words to file & move old file to morgue
 #newname = '/home/mpineda/iFeelHumanity/morgue/wordList_'+dt+'.txt'
 #os.rename('/home/mpineda/iFeelHumanity/wordList.txt', newname)
 
-#file = open('/home/mpineda/iFeelHumanity/wordList.txt','w')
-#for word in words_list:
-#  file.write('%s\n' % word)
-#file.close()
+file = open('/home/mpineda/iFeelHumanity/wordList.txt','w')
+for word in words_list:
+  file.write('%s\n' % word)
+file.close()
 
 # Rename tweet file
 #newname = '/home/mpineda/iFeelHumanity/morgue/tweets_'+dt+'.txt'
