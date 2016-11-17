@@ -22,19 +22,14 @@ stopwords = filter(None, stopwords)
 words_list = []
 for tweet in tweets:
   print('IN: %s' % tweet)
-  words = tweet.split()
+  tweet = tweet.translate(None, string.punctuation) # Remove punctuation
+  words = tweet.split() # Split into separate words
 
   # Remove stopwords
-  #tmp = ' '.join([i for i in words if i not in stopwords])
   tmp = [i for i in words if i.lower() not in stopwords]
-
-  # Remove punctuation
-  tmp2 = ' '.join(tmp)
-  tmp3 = tmp2.translate(None, string.punctuation)
-
-  tweet = tmp3 
-  print('OUT: %s' % tmp3)
-  words_list.extend(tweet.split())
+  tweet = tmp
+  print('OUT: %s' % ' '.join(tweet))
+  words_list.extend(tweet)
 
 # Get word frequencies
 wordCounts = Counter(words_list)
