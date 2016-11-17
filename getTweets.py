@@ -90,11 +90,36 @@ for result in results:
         # Remove duplicate tweets
         tweet_list = list(set(tweet_list))
 
-# Save cleaned up list of tweets to file
-file = open('/home/mpineda/iFeelHumanity/tweets.txt', 'a') # Append new tweets to existing file
-for tweet in tweet_list:
-  file.write('%s\n' % tweet)
-file.close()
+# Save cleaned up list of tweets to file. Check length of existing tweet file and append making sure the file does not exceed 10000 tweets (lines)
+try:
+    nl = sum(1 for line in open('tweets.txt'))  # Number of lines in tweets.txt
+    print("tweets.txt exists and has %i lines" % nl)
+except IOError:  # FileNotFoundError in Python 3
+    nl = 0
+    print("tweets.txt does NOT exist")
 
-print("Scraped number of tweets: %i" % len(results))
-print("Cleaned number of tweets: %i" % len(tweet_list))
+if (nl < 10000):
+  print("Appending new tweets to existing tweets.txt...")
+  file = open('/home/mpineda/iFeelHumanity/tweets.txt', 'a') # Append new tweets to existing file
+  for tweet in tweet_list:
+    file.write('%s\n' % tweet)
+  file.close()
+else:
+  # Load the last 10000 tweets
+  nStart = nl - 10000
+  print("tweets.txt too large - discarding first %i lines..." % nStart)
+  tweets = []
+  for i in range(nStart, nl):
+      tweets.append(open("tweets.txt", "r").readlines()[i])
+  # Append tweets from the current search
+  tweets = tweets + tweet_list
+  # Save tweets by overwriting old tweets.txt file
+  file = open('/home/mpineda/iFeelHumanity/tweets.txt', 'w') # Overwrite new tweets to existing file
+  for tweet in tweets:
+    file.write('%s\n' % tweet)
+  file.close()
+
+print("Total number of found tweets: %i" % len(results))
+print("Total number of kept tweets: %i" % len(tweet_list))
+nl = sum(1 for line in open('tweets.txt'))  # Number of lines in tweets.txt
+print("tweets.txt now has %i lines" % nl)
