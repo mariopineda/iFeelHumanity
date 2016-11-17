@@ -64,9 +64,9 @@ word = random.sample(wordPop, 1) # Sample 3rd word
 sampleWords += word 
 
 # Save top three words & move old file to morgue
-#dt = str(datetime.datetime.now())
-#newname = '/home/mpineda/iFeelHumanity/morgue/topThreeWords_'+dt+'.txt'
-#os.rename('/home/mpineda/iFeelHumanity/topThreeWords.txt', newname)
+dt = str(datetime.datetime.now())
+newname = '/home/mpineda/iFeelHumanity/morgue/topThreeWords_'+dt+'.txt'
+os.rename('/home/mpineda/iFeelHumanity/topThreeWords.txt', newname)
 
 #file = open('/home/mpineda/iFeelHumanity/topThreeWords.txt','w')
 #for i in sampleWords:
