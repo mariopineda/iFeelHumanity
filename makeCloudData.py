@@ -66,7 +66,6 @@ while word in wordPop: wordPop.remove(word) # Remove 2st word from population to
 word = random.sample(wordPop, 1) # Sample 3rd word
 sampleWords += word 
 
-
 # Save top three words & move old file to morgue
 dt = str(datetime.datetime.now())
 newname = '/home/mpineda/iFeelHumanity/morgue/topThreeWords_'+dt+'.txt'
@@ -87,7 +86,6 @@ for word in words_list:
 file.close()
 
 # Rename tweet file
-dt = str(datetime.datetime.now())
 newname = '/home/mpineda/iFeelHumanity/morgue/tweets_'+dt+'.txt'
 os.rename('/home/mpineda/iFeelHumanity/tweets.txt', newname)
 
