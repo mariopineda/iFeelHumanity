@@ -57,11 +57,13 @@ for letter, count in wordCounts.most_common(10):
   wordPop += [letter] * count
 word = random.sample(wordPop, 1) # Sample 1st word
 sampleWords += word 
-while word in wordPop: wordPop.remove(word) # Remove 1st word from population to avoid resampling
+s = ''.join(word)
+while s in wordPop: wordPop.remove(s) # Remove 1st word from population to avoid resampling
 
 word = random.sample(wordPop, 1) # Sample 2nd word
 sampleWords += word 
-while word in wordPop: wordPop.remove(word) # Remove 2st word from population to $
+s = ''.join(word)
+while s in wordPop: wordPop.remove(s) # Remove 2st word from population to $
 
 word = random.sample(wordPop, 1) # Sample 3rd word
 sampleWords += word 
@@ -121,11 +123,8 @@ api = twitter.Api(consumer_key=consumer_key,
                   consumer_secret=consumer_secret,
                   access_token_key=access_token,
                   access_token_secret=access_token_secret)
-#print(api.VerifyCredentials())
 
-
-words = [line.strip('\n') for line in open('/home/mpineda/iFeelHumanity/topThreeWords.txt')]
-new_status = "I feel " + words[0] + ". I feel " + words[1] + ". I feel " + words[2] + ". #iFeelHumanity"
+new_status = "I feel " + sampleWords[0] + ". I feel " + sampleWords[1] + ". I feel " + sampleWords[2] + ". #iFeelHumanity"
 status = api.PostUpdate(new_status)
 #results = twitter.statuses.update(status = new_status)
 print "updated status: %s" % new_status
