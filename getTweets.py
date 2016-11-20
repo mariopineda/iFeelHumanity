@@ -115,8 +115,8 @@ else:
   tweets = tweets + tweet_list
   # Save tweets by overwriting old tweets.txt file
   file = open('/home/mpineda/iFeelHumanity/tweets.txt', 'w') # Overwrite new tweets to existing file
-  for tweet in tweets:
-    file.write('%s\n' % tweet)
+  for t in tweets:
+    file.write('%s' % t)
   file.close()
 
 print("Total number of found tweets: %i" % len(results))
