@@ -7,25 +7,33 @@ import urllib
 import random
 from collections import Counter
 
+# Declare and generate file paths
+path = "/home/mpineda/iFeelHumanity/"
+pathConsumerKey = path + "consumer_key.txt"
+pathConsumerSecret = path + "consumer_secret.txt"
+pathAccessToken = path + "access_token.txt"
+pathAccessTokenSecret = path + "access_token_secret.txt"
+pathTweets = path + "tweets.txt"
+
 #
 # Load twitter authorization keys (these are secret are ignored by git)
 #
-file = open('/home/mpineda/iFeelHumanity/consumer_key.txt', 'r')
+file = open(pathConsumerKey, 'r')
 consumer_key = file.read()
 consumer_key = consumer_key.rstrip('\n') # Remove trailing \n
 file.close()
 
-file = open('/home/mpineda/iFeelHumanity/consumer_secret.txt', 'r')
+file = open(pathConsumerSecret, 'r')
 consumer_secret = file.read()
 consumer_secret = consumer_secret.rstrip('\n')
 file.close()
 
-file = open('/home/mpineda/iFeelHumanity/access_token.txt', 'r')
+file = open(pathAccessToken, 'r')
 access_token = file.read()
 access_token = access_token.rstrip('\n')
 file.close()
 
-file = open('/home/mpineda/iFeelHumanity/access_token_secret.txt', 'r')
+file = open(pathAccessTokenSecret, 'r')
 access_token_secret = file.read()
 access_token_secret = access_token_secret.rstrip('\n')
 file.close()
@@ -92,15 +100,15 @@ for result in results:
 
 # Save cleaned up list of tweets to file. Check length of existing tweet file and append making sure the file does not exceed 10000 tweets (lines)
 try:
-    nl = sum(1 for line in open('/home/mpineda/iFeelHumanity/tweets.txt'))  # Number of lines in tweets.txt
+    nl = sum(1 for line in open(pathTweets))  # Number of lines in tweets.txt
     print("tweets.txt exists and has %i lines" % nl)
 except IOError:  # FileNotFoundError in Python 3
     nl = 0
     print("tweets.txt does NOT exist")
 
-if (nl < 10000):
+if (nl <= 10000):
   print("Appending new tweets to existing tweets.txt...")
-  file = open('/home/mpineda/iFeelHumanity/tweets.txt', 'a') # Append new tweets to existing file
+  file = open(pathTweets, 'a') # Append new tweets to existing file
   for tweet in tweet_list:
     file.write('%s\n' % tweet)
   file.close()
@@ -110,16 +118,16 @@ else:
   print("tweets.txt too large - discarding first %i lines..." % nStart)
   tweets = []
   for i in range(nStart, nl):
-      tweets.append(open("/home/mpineda/iFeelHumanity/tweets.txt", "r").readlines()[i])
+      tweets.append(open(pathTweets, "r").readlines()[i])
   # Append tweets from the current search
   tweets = tweets + tweet_list
   # Save tweets by overwriting old tweets.txt file
-  file = open('/home/mpineda/iFeelHumanity/tweets.txt', 'w') # Overwrite new tweets to existing file
+  file = open(pathTweets, 'w') # Overwrite new tweets to existing file
   for t in tweets:
     file.write('%s' % t)
   file.close()
 
 print("Total number of found tweets: %i" % len(results))
 print("Total number of kept tweets: %i" % len(tweet_list))
-nl = sum(1 for line in open('tweets.txt'))  # Number of lines in tweets.txt
-print("/home/mpineda/iFeelHumanity/tweets.txt now has %i lines" % nl)
+nl = sum(1 for line in open(pathTweets))  # Number of lines in tweets.txt
+print("tweets.txt now has %i lines" % nl)
