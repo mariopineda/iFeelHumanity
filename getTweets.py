@@ -92,7 +92,7 @@ for result in results:
 
 # Save cleaned up list of tweets to file. Check length of existing tweet file and append making sure the file does not exceed 10000 tweets (lines)
 try:
-    nl = sum(1 for line in open('tweets.txt'))  # Number of lines in tweets.txt
+    nl = sum(1 for line in open('/home/mpineda/iFeelHumanity/tweets.txt'))  # Number of lines in tweets.txt
     print("tweets.txt exists and has %i lines" % nl)
 except IOError:  # FileNotFoundError in Python 3
     nl = 0
@@ -110,7 +110,7 @@ else:
   print("tweets.txt too large - discarding first %i lines..." % nStart)
   tweets = []
   for i in range(nStart, nl):
-      tweets.append(open("tweets.txt", "r").readlines()[i])
+      tweets.append(open("/home/mpineda/iFeelHumanity/tweets.txt", "r").readlines()[i])
   # Append tweets from the current search
   tweets = tweets + tweet_list
   # Save tweets by overwriting old tweets.txt file
@@ -122,4 +122,4 @@ else:
 print("Total number of found tweets: %i" % len(results))
 print("Total number of kept tweets: %i" % len(tweet_list))
 nl = sum(1 for line in open('tweets.txt'))  # Number of lines in tweets.txt
-print("tweets.txt now has %i lines" % nl)
+print("/home/mpineda/iFeelHumanity/tweets.txt now has %i lines" % nl)
