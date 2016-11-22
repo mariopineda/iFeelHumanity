@@ -117,7 +117,7 @@ else:
   nStart = nl - 10000
   print("tweets.txt too large - discarding first %i lines..." % nStart)
   tweets = []
-  for i in range(nStart, nl):
+  for i in range(nStart, nl-1):
       tweets.append(open(pathTweets, "r").readlines()[i])
   # Append tweets from the current search
   tweets = tweets + tweet_list
