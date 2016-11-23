@@ -16,3 +16,5 @@ The aim of this project was threefold:
 This repository contains the source code for this project.
 
 Welcome human - I feel you!
+
+[how does it work]: img/howDoesItWork.png "How does it work"
