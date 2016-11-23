@@ -1,4 +1,4 @@
-# iFeelHumanity
+# [#iFeelHumanity](https://twitter.com/iFeelHumanity)
 ## Capturing the collective feelings of the tweeting part of humanity since 2016
 
  #iFeelHumanity is a visual arts project capturing the collective feelings of the tweeting part of humanity - one hour and three words at a time. The art installation is located in a classroom in a high school in Edmonton, Canada, and is run on a Raspberry Pi 3. The collective feelings of humanity is presented on a repurposed monitor in a gilded frame placed on a plain white background. While the image may appears static it refreshes itself every hour while tweeting out the message as well.
@@ -15,5 +15,3 @@ The aim of this project was threefold:
 
 This repository contains the code for this project. 
 
-##iFeelHumanity on the web 
-Twitter: [@iFeelHumanity](https://twitter.com/iFeelHumanity)
