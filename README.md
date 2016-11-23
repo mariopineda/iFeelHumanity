@@ -17,4 +17,4 @@ This repository contains the source code for this project.
 
 Welcome human - I feel you!
 
-[how does it work]: https://github.com/mariopineda/iFeelHumanity/blob/master/img/howDoesItWork.png "How does it work"
+![alt text](https://github.com/mariopineda/iFeelHumanity/blob/master/img/howDoesItWork.png  "How does it work")
