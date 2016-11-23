@@ -17,4 +17,4 @@ This repository contains the source code for this project.
 
 Welcome human - I feel you!
 
-[how does it work]: img/howDoesItWork.png "How does it work"
+[how does it work]: ./img/howDoesItWork.png "How does it work"
