@@ -22,14 +22,14 @@ stopwords = ' '.join(stopwords).translate(None, string.punctuation).split() # Re
 # Remove stop words from tweets
 words_list = []
 for tweet in tweets:
-  print('IN: %s' % tweet)
+  #print('IN: %s' % tweet)
   tweet = tweet.translate(None, string.punctuation) # Remove punctuation
   words = tweet.split() # Split into separate words
 
   # Remove stopwords
   tmp = [i for i in words if i.lower() not in stopwords]
   tweet = tmp
-  print('OUT: %s' % ' '.join(tweet))
+  #print('OUT: %s' % ' '.join(tweet))
   words_list.extend(tweet)
 
 # Get word frequencies
@@ -49,7 +49,7 @@ file.close()
 #------------------------------------------------------------------------
 wordPop = [] # A list of words, each one repeated as many time as it occurs
 sampleWords = [] # List of the three sampled words
-for letter, count in wordCounts.most_common(10):
+for letter, count in wordCounts.most_common(20):
   wordPop += [letter] * count
 word = random.sample(wordPop, 1) # Sample 1st word
 sampleWords += word 
