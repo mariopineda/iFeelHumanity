@@ -1,7 +1,7 @@
 # [#iFeelHumanity](https://twitter.com/iFeelHumanity)
 ## Capturing the collective feelings of the tweeting part of humanity since 2016
 
-[#iFeelHumanity](https://twitter.com/iFeelHumanity) is a visual arts project capturing the collective feelings of the tweeting part of humanity - one hour and three words at a time. The art installation is located in a classroom in a high school in Edmonton, Canada, and is run on a Raspberry Pi 3. The collective feelings of humanity is presented on a repurposed monitor in a gilded frame placed on a simple wooden background. While the image may appears static it refreshes itself every hour while [updating its tweet status](https://twitter.com/iFeelHumanity) with the same message.
+[#iFeelHumanity](https://twitter.com/iFeelHumanity) is a visual arts project capturing the collective feelings of the tweeting part of humanity - one hour and three words at a time. The art installation is located in a classroom in a high school in Edmonton, Canada, and is run on a Raspberry Pi 3. The collective feelings of humanity is presented on a repurposed monitor in a gilded frame placed on a simple wooden background. While the image may appear static it refreshes itself every hour while [updating its tweet status](https://twitter.com/iFeelHumanity) with the same message.
 
 The three words summarizing the collective feelings of humanity are obtained by searching for recent tweets containing the phrase "I feel". After removing inappropriate language and stop words the remaining words are collated into a frequency table using the 10000 most recently found tweets. The three words most aptly describing the collective feelings of the tweeting part of humanity during this hour are randomly sampled randomly from the 20 most common words.
 
