@@ -15,8 +15,8 @@ float dx = 1; // Decrement amount for x coord (= speed of scrolling tweets)
 int i = 0; 
 
 void setup() {
-  //fullScreen();
-  size(1200, 800);
+  fullScreen();
+  //size(1200, 800);
   f1 = createFont("Georgia", fontSize1, true);
   f2 = createFont("Arial", fontSize2, true);
   noCursor();
@@ -43,7 +43,7 @@ void draw() {
   rectMode(CENTER);
   textAlign(LEFT);
   String txt = "I feel " + w[0] + "\n\nI feel " + w[1] + "\n\nI feel "+ w[2];
-  text(txt,width/2,height/2,width*0.25,height*0.4);
+  text(txt,width/2,height/2);
 
   //
   // Scrolling tweets
