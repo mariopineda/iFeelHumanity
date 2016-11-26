@@ -13,6 +13,7 @@ float y; // y coord of scrolling text
 float x; // x coord of scrolling text
 float dx = 1; // Decrement amount for x coord (= speed of scrolling tweets)
 int i = 0; 
+int alpha;
 
 void setup() {
   fullScreen();
@@ -30,8 +31,10 @@ void setup() {
   tweets = loadStrings("../tweets.txt");
   i = (int) random(0, tweets.length); // Pick a random tweet
 
+  // Set a random alpha (transparency) for first scrolling tweet
+  alpha = (int) random(25,175);
 }
-
+  
 void draw() {
   // Load data
   w = loadStrings("../topThreeWords.txt"); // Reloading three words every interation
@@ -43,12 +46,12 @@ void draw() {
   rectMode(CENTER);
   textAlign(LEFT);
   String txt = "I feel " + w[0] + "\n\nI feel " + w[1] + "\n\nI feel "+ w[2];
-  text(txt,width/2,height/2);
+  text(txt,width/2,height/3);
 
   //
   // Scrolling tweets
   //
-  fill(150, 150, 150);
+  fill(150, 150, 150, alpha);
   textFont(f2, fontSize2);
   rectMode(CORNER);
   textAlign(LEFT);
@@ -63,5 +66,6 @@ void draw() {
     x = width; 
     i = (int) random(0, tweets.length); // Pick a random tweet    
     y = (int) random(fontSize2, height-fontSize2); // Pick a random y coord
+    alpha = (int) random(25,175);
   }
 }
