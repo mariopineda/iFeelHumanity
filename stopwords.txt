@@ -109,6 +109,7 @@ certainly
 co
 com
 come
+coming
 comes
 contain
 containing
@@ -610,6 +611,7 @@ vol
 vols
 vs
 w
+wanna
 want
 wants
 was
