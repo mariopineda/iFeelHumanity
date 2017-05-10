@@ -15,9 +15,9 @@ void draw() {
   w = loadStrings("../topThreeWords.txt");
   background(white);
   fill(black);
-  textFont(f,40);
-  rectMode(CENTER);
+  textFont(f,90);
+  //rectMode(CENTER);
   textAlign(LEFT);
   String txt = "I feel " + w[0] + "\n\nI feel " + w[1] + "\n\nI feel "+ w[2];
-  text(txt,width/2,height/2,width*0.25,height*0.4);
+  text(txt,200, 250);
 }
